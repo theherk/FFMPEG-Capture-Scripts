@@ -26,7 +26,8 @@ fi
 echo -n "Enter the filename without [.avi] extension and hit <ENTER>: "
 read name
 
-ffmpeg -loglevel panic -f x11grab -s hd1080 -r 29.97 -i :0.0 -vcodec mpeg2video -qscale 1 -qmin 1 -intra -an -threads 8 "${dir}/${name}_video.avi" </dev/null >/dev/null 2>/dev/null &
+ffmpeg -loglevel panic -f x11grab -s hd1080 -r 29.97 -i :0.0 -vcodec
+mpeg2video -qscale 1 -qmin 1 -intra -an -threads 8 "${dir}/${name}_video.m2v" </dev/null >/dev/null 2>/dev/null &
 
 ffmpeg -loglevel panic -f jack -ac 2 -i ffmpeg -threads 8 "${dir}/${name}_audio.mp3" </dev/null >/dev/null 2>/dev/null &
 
